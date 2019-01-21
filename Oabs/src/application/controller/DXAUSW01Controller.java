@@ -27,7 +27,7 @@ public class DXAUSW01Controller {
 					new Values("3", "eingetragener Kaufmann"),
 					new Values("3", "Einzelfirma"),
 					new Values("4", "AG & Cie"));
-	
+
 	private Parameter parameter = null;
 	public Parameter getParameter() {
 		return parameter;
@@ -35,12 +35,6 @@ public class DXAUSW01Controller {
 
 	public void setParameter(Parameter parameter) {
 		this.parameter = parameter;
-	}
-
-	public void initialize() {
-
-		col_key.setCellValueFactory(new PropertyValueFactory<Values, String>("colKey"));
-		col_value.setCellValueFactory(new PropertyValueFactory<Values, String>("colValue"));
 
 		switch (parameter.getInId()) {
 		case id_AGANRRF:
@@ -50,9 +44,15 @@ public class DXAUSW01Controller {
 		default:
 			break;
 		}
+	}
+
+	public void initialize() {
+
+		col_key.setCellValueFactory(new PropertyValueFactory<Values, String>("colKey"));
+		col_value.setCellValueFactory(new PropertyValueFactory<Values, String>("colValue"));
 
 	}
-	
+
 
 	@FXML
 	private ResourceBundle resources;
@@ -81,7 +81,7 @@ public class DXAUSW01Controller {
 	@FXML
 	void handleSchliessenEvent(ActionEvent event) {
 		Stage stage = (Stage) btn_schliessen.getScene().getWindow();
-	    stage.close();
+		stage.close();
 
 	}
 
@@ -99,7 +99,7 @@ public class DXAUSW01Controller {
 
 	@FXML
 	void tbl_ausw(MouseEvent event) {
-		
+
 		String key  = tbl_ausw.getSelectionModel().getSelectedItem().getColKey();
 		System.out.print(key + " ");
 		String value  = tbl_ausw.getSelectionModel().getSelectedItem().getColValue();
