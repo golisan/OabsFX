@@ -119,11 +119,13 @@ public class DGAGXX01Controller {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
+			FXMLLoader loader = new FXMLLoader();
 			root = FXMLLoader.load(
 					DXAUSW01Controller.class.getResource("view/DXAUSW01.fxml"));
 			stage.setScene(new Scene(root));
 			stage.setTitle("Auswahl");
 			stage.initModality(Modality.WINDOW_MODAL);
+			loader.getController();
 			Window owner = ((Node)event.getSource()).getScene().getWindow();
 			//owner.setUserData("Hallo");
 			owner.getUserData();
