@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="950.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DGAGXX01Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Datei" />
+        <Menu mnemonicParsing="false" text="Auskunft" />
+        <Menu mnemonicParsing="false" text="Fenster" />
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TitledPane animated="false" collapsible="false" layoutX="15.0" layoutY="15.0" prefHeight="65.0" prefWidth="250.0" text="Geschäftsnummer">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField alignment="TOP_LEFT" disable="true" editable="false" layoutX="15.0" layoutY="5.0" prefHeight="25.0" prefWidth="30.0" text="18" />
+                        <Label layoutX="54.0" layoutY="8.0" text="-" />
+                        <TextField alignment="TOP_LEFT" disable="true" layoutX="65.0" layoutY="5.0" prefHeight="25.0" prefWidth="65.0" text="8853206" />
+                        <Label layoutX="144.0" layoutY="8.0" text="-" />
+                        <TextField alignment="TOP_LEFT" disable="true" layoutX="155.0" layoutY="5.0" prefHeight="25.0" prefWidth="30.0" text="1" />
+                        <Label layoutX="194.0" layoutY="8.0" text="-" />
+                        <TextField alignment="TOP_LEFT" disable="true" layoutX="205.0" layoutY="5.0" prefHeight="25.0" prefWidth="30.0" text="9" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" layoutX="15.0" layoutY="110.0" prefWidth="850.0" text="Antragsgegner">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="852.0">
+                     <children>
+                        <Label layoutX="15.0" layoutY="25.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Anrede/Rechtsform" />
+                        <TextField id="anr" fx:id="anr" layoutX="155.0" layoutY="25.0" prefHeight="25.0" prefWidth="30.0" text="2" />
+                        <TextField id="anrText" fx:id="anrText" layoutX="195.0" layoutY="25.0" prefHeight="25.0" prefWidth="325.0" text="Frau" />
+                        <Button id="btn_anrSuch" fx:id="btn_anr_Such" layoutX="525.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAnr_Such" prefHeight="25.0" prefWidth="25.0" text="..." />
+                        <Button id="btn_GV" fx:id="btn_GV" layoutX="685.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="GV ..." />
+                        <Label layoutX="15.0" layoutY="55.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 1" />
+                        <TextField id="name1" fx:id="name1" layoutX="155.0" layoutY="55.0" prefHeight="25.0" prefWidth="366.0" text="Aynur" />
+                        <Label layoutX="15.0" layoutY="85.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 2" />
+                        <TextField id="name2" fx:id="name2" layoutX="155.0" layoutY="85.0" prefHeight="25.0" prefWidth="366.0" text="Bayraktar" />
+                        <Label layoutX="15.0" layoutY="115.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 3" />
+                        <TextField id="name3" fx:id="name3" layoutX="155.0" layoutY="115.0" prefHeight="25.0" prefWidth="366.0" />
+                        <Label layoutX="15.0" layoutY="145.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 4" />
+                        <TextField id="name4" fx:id="name4" layoutX="155.0" layoutY="145.0" prefHeight="25.0" prefWidth="366.0" />
+                        <Label layoutX="15.0" layoutY="175.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Straße/Nr." />
+                        <TextField id="str" fx:id="str" layoutX="155.0" layoutY="175.0" prefHeight="25.0" prefWidth="366.0" text="Drackensteiner Str. 27" />
+                        <Label layoutX="15.0" layoutY="205.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="PLZ/Ort" />
+                        <TextField id="plz" fx:id="plz" layoutX="155.0" layoutY="205.0" prefHeight="25.0" prefWidth="50.0" text="73342" />
+                        <TextField id="ort" fx:id="ort" layoutX="215.0" layoutY="205.0" prefHeight="25.0" prefWidth="305.0" text="Bad Ditzenbach" />
+                        <Button id="btn_plzSuch" fx:id="btn_plzSuch" layoutX="525.0" layoutY="205.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="..." />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" layoutX="15.0" layoutY="450.0" prefWidth="850.0" text="Prozessgerichtsdaten">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="140.0" prefWidth="850.0">
+                     <children>
+                        <Label layoutX="15.0" layoutY="25.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Art" />
+                        <TextField id="abt" fx:id="abt" disable="true" layoutX="154.0" layoutY="55.0" prefHeight="25.0" prefWidth="366.0" />
+                        <Label layoutX="15.0" layoutY="85.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Anschrift" />
+                        <TextField id="PGPlz" fx:id="PGPLz" layoutX="155.0" layoutY="85.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField id="PGOrt" fx:id="PGOrt" layoutX="215.0" layoutY="85.0" prefHeight="25.0" prefWidth="305.0" />
+                        <ChoiceBox id="PGArt" fx:id="PGArt" layoutX="155.0" layoutY="25.0" prefHeight="25.0" prefWidth="367.0" />
+                        <Button id="btn_PGErmitteln" fx:id="btn_PGErmitteln" layoutX="685.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="PG ermitteln..." />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <Button id="btn_neu" fx:id="btn_neu" layoutX="1140.0" layoutY="740.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Neu" />
+            <Button id="btn_loeschen" fx:id="btn_loeschen" layoutX="1140.0" layoutY="770.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Löschen" />
+            <Button id="btn_speichern" fx:id="btn_speichern" layoutX="1140.0" layoutY="810.0" mnemonicParsing="false" onAction="#handleSpeichernEvent" prefHeight="25.0" prefWidth="125.0" text="Speichern" />
+            <Button id="btn_schliessen" fx:id="btn_schliessen" cancelButton="true" layoutX="1140.0" layoutY="840.0" mnemonicParsing="false" onAction="#handleSchliessenEvent" prefHeight="25.0" prefWidth="125.0" text="Schließen" />
+            <Button id="btn_beenden" fx:id="btn_beenden" disable="true" layoutX="1140.0" layoutY="870.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Beenden" visible="false" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
