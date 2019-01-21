@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class DXAUSW01Controller {
 
-	private final ObservableList<Values> data =
+	private final ObservableList<Values> anreden =
 			FXCollections.observableArrayList(
 					new Values("0", "Herr/Frau"),
 					new Values("1", "Herr"),
@@ -38,10 +38,18 @@ public class DXAUSW01Controller {
 	}
 
 	public void initialize() {
-		
+
 		col_key.setCellValueFactory(new PropertyValueFactory<Values, String>("colKey"));
 		col_value.setCellValueFactory(new PropertyValueFactory<Values, String>("colValue"));
-		tbl_ausw.setItems(data);
+
+		switch (parameter.getInId()) {
+		case id_AGANRRF:
+			tbl_ausw.setItems(anreden);
+			break;
+
+		default:
+			break;
+		}
 
 	}
 	
@@ -84,7 +92,7 @@ public class DXAUSW01Controller {
 		String[] data = new String[2];
 		data[0] = tbl_ausw.getSelectionModel().getSelectedItem().getColKey();
 		data[1] = tbl_ausw.getSelectionModel().getSelectedItem().getColValue();
-		parameter.setData(data);
+		parameter.setOutData(data);
 		stage.close();
 
 	}

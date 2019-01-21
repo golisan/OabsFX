@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import application.AlertHelper;
+import application.Ids;
 import application.Oabs;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -122,14 +123,13 @@ public class DGAGXX01Controller {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/DXAUSW01.fxml"));
 
-//			FXMLLoader loader =  new FXMLLoader(DGAGXX01Controller.class.getClassLoader().getResource(
-//            "view/DXAUSW01.fxml"));
 			root = loader.load();
 			DXAUSW01Controller controller = loader.getController();
+			
 			application.Parameter parameter = new application.Parameter();
+			parameter.setInId(Ids.id_AGANRRF);
 			controller.setParameter(parameter);
-//			root = FXMLLoader.load(
-//					DXAUSW01Controller.class.getResource("view/DXAUSW01.fxml"));
+			
 			stage.setScene(new Scene(root));
 			stage.setTitle("Auswahl");
 			stage.initModality(Modality.WINDOW_MODAL);
@@ -139,11 +139,10 @@ public class DGAGXX01Controller {
 			stage.showAndWait();
 
 			if (controller.getParameter().isOk()){
-				anr.setText(controller.getParameter().getData()[0]);
-				anrText.setText(controller.getParameter().getData()[1]);
+				anr.setText(controller.getParameter().getOutData()[0]);
+				anrText.setText(controller.getParameter().getOutData()[1]);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

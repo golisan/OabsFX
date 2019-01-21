@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="950.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DGAGXX01Controller">
+<VBox prefHeight="950.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DGAGXX01Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -48,7 +48,7 @@
                         <Label layoutX="15.0" layoutY="55.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 1" />
                         <TextField id="name1" fx:id="name1" layoutX="155.0" layoutY="55.0" prefHeight="25.0" prefWidth="366.0" text="Aynur" />
                         <Label layoutX="15.0" layoutY="85.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 2" />
-                        <TextField id="name2" fx:id="name2" layoutX="155.0" layoutY="85.0" prefHeight="25.0" prefWidth="366.0" text="Bayraktar" />
+                        <TextField id="name2" fx:id="name2" layoutX="155.0" layoutY="85.0" prefHeight="25.0" prefWidth="366.0" text="Bayraktar " />
                         <Label layoutX="15.0" layoutY="115.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 3" />
                         <TextField id="name3" fx:id="name3" layoutX="155.0" layoutY="115.0" prefHeight="25.0" prefWidth="366.0" />
                         <Label layoutX="15.0" layoutY="145.0" maxHeight="25.0" maxWidth="130.0" prefHeight="25.0" prefWidth="130.0" text="Name 4" />
