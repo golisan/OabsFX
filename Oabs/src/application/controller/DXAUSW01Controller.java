@@ -3,6 +3,7 @@ package application.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Parameter;
 import application.model.Values;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,17 +28,23 @@ public class DXAUSW01Controller {
 					new Values("3", "Einzelfirma"),
 					new Values("4", "AG & Cie"));
 	
+	private Parameter parameter = null;
+	public Parameter getParameter() {
+		return parameter;
+	}
+
+	public void setParameter(Parameter parameter) {
+		this.parameter = parameter;
+	}
 
 	public void initialize() {
-		// final  TableView<Values> table = new TableView<Values>();
-
-//		tbl_ausw.setEditable(true);
 		
 		col_key.setCellValueFactory(new PropertyValueFactory<Values, String>("colKey"));
 		col_value.setCellValueFactory(new PropertyValueFactory<Values, String>("colValue"));
 		tbl_ausw.setItems(data);
 
 	}
+	
 
 	@FXML
 	private ResourceBundle resources;
@@ -73,6 +80,11 @@ public class DXAUSW01Controller {
 	@FXML
 	void handleSpeichernEvent(ActionEvent event) {
 		Stage stage = (Stage) btn_speichern.getScene().getWindow();
+		parameter.setOk(true);
+		String[] data = new String[2];
+		data[0] = tbl_ausw.getSelectionModel().getSelectedItem().getColKey();
+		data[1] = tbl_ausw.getSelectionModel().getSelectedItem().getColValue();
+		parameter.setData(data);
 		stage.close();
 
 	}

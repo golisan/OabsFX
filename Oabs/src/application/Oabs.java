@@ -10,7 +10,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Oabs extends Application {
-	private FXMLLoader loader;
 
     @Override
     public void init() throws Exception {
@@ -19,7 +18,7 @@ public class Oabs extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-    	 loader = new FXMLLoader(Oabs.class.getResource("view/DGAGXX01.fxml"));
+      	 FXMLLoader loader = new FXMLLoader(getClass().getResource("view/DGAGXX01.fxml"));
     	 Parent root = loader.load();
 
          Scene scene = new Scene(root, 1280, 950);

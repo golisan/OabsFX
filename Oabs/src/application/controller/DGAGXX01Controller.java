@@ -1,8 +1,10 @@
 package application.controller;
 
 import java.io.IOException;
+import java.net.URL;
 
 import application.AlertHelper;
+import application.Oabs;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -10,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -119,18 +120,28 @@ public class DGAGXX01Controller {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			root = FXMLLoader.load(
-					DXAUSW01Controller.class.getResource("view/DXAUSW01.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/DXAUSW01.fxml"));
+
+//			FXMLLoader loader =  new FXMLLoader(DGAGXX01Controller.class.getClassLoader().getResource(
+//            "view/DXAUSW01.fxml"));
+			root = loader.load();
+			DXAUSW01Controller controller = loader.getController();
+			application.Parameter parameter = new application.Parameter();
+			controller.setParameter(parameter);
+//			root = FXMLLoader.load(
+//					DXAUSW01Controller.class.getResource("view/DXAUSW01.fxml"));
 			stage.setScene(new Scene(root));
 			stage.setTitle("Auswahl");
 			stage.initModality(Modality.WINDOW_MODAL);
-			loader.getController();
 			Window owner = ((Node)event.getSource()).getScene().getWindow();
-			//owner.setUserData("Hallo");
-			owner.getUserData();
 			stage.initOwner(owner);
+			
 			stage.showAndWait();
+
+			if (controller.getParameter().isOk()){
+				anr.setText(controller.getParameter().getData()[0]);
+				anrText.setText(controller.getParameter().getData()[1]);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
