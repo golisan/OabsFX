@@ -27,6 +27,14 @@ public class DXAUSW01Controller {
 					new Values("3", "eingetragener Kaufmann"),
 					new Values("3", "Einzelfirma"),
 					new Values("4", "AG & Cie"));
+	private final ObservableList<Values> orte =
+			FXCollections.observableArrayList(
+					new Values("1000", "Stadt1"),
+					new Values("2000", "Stadt2"),
+					new Values("3000", "Stadt3"),
+					new Values("4000", "Stadt4"),
+					new Values("5000", "Stadt5"),
+					new Values("6000", "Stadt6"));
 
 	private Parameter parameter = null;
 	public Parameter getParameter() {
@@ -37,8 +45,11 @@ public class DXAUSW01Controller {
 		this.parameter = parameter;
 
 		switch (parameter.getInId()) {
-		case id_AGANRRF:
+		case ID_AGANRRF:
 			tbl_ausw.setItems(anreden);
+			break;
+		case ID_ORTE:
+			tbl_ausw.setItems(orte);
 			break;
 
 		default:
@@ -88,10 +99,13 @@ public class DXAUSW01Controller {
 	@FXML
 	void handleSpeichernEvent(ActionEvent event) {
 		Stage stage = (Stage) btn_speichern.getScene().getWindow();
-		parameter.setOk(true);
+		parameter.setOk(false);
 		String[] data = new String[2];
-		data[0] = tbl_ausw.getSelectionModel().getSelectedItem().getColKey();
-		data[1] = tbl_ausw.getSelectionModel().getSelectedItem().getColValue();
+		if (!tbl_ausw.getSelectionModel().isEmpty()){
+			data[0] = tbl_ausw.getSelectionModel().getSelectedItem().getColKey();
+			data[1] = tbl_ausw.getSelectionModel().getSelectedItem().getColValue();
+			parameter.setOk(true);
+		}
 		parameter.setOutData(data);
 		stage.close();
 

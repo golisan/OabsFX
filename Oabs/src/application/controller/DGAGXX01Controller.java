@@ -107,7 +107,7 @@ public class DGAGXX01Controller {
 	@FXML
 	protected void handleSpeichernEvent(ActionEvent event) {
 		Window owner = btn_speichern.getScene().getWindow();
-		String s =anr.getText(); 
+		String s =anr.getText().trim(); 
 		if(s.isEmpty()) {
 			AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Fehler", 
 					"Anrede darf nicht leer sein!");
@@ -127,11 +127,11 @@ public class DGAGXX01Controller {
 			DXAUSW01Controller controller = loader.getController();
 			
 			application.Parameter parameter = new application.Parameter();
-			parameter.setInId(Ids.id_AGANRRF);
+			parameter.setInId(Ids.ID_AGANRRF);
 			controller.setParameter(parameter);
 			
 			stage.setScene(new Scene(root));
-			stage.setTitle("Auswahl");
+			stage.setTitle("Auswahl Anrede/Rechtsform");
 			stage.initModality(Modality.WINDOW_MODAL);
 			Window owner = ((Node)event.getSource()).getScene().getWindow();
 			stage.initOwner(owner);
@@ -150,8 +150,38 @@ public class DGAGXX01Controller {
 	}
 
 
+	@FXML
+	protected void handlePlz_Such(ActionEvent event) {
+		Stage stage = new Stage();
+		Parent root = null;
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/DXAUSW01.fxml"));
+
+			root = loader.load();
+			DXAUSW01Controller controller = loader.getController();
+			
+			application.Parameter parameter = new application.Parameter();
+			parameter.setInId(Ids.ID_ORTE);
+			controller.setParameter(parameter);
+			
+			stage.setScene(new Scene(root));
+			stage.setTitle("Ortssuche");
+			stage.initModality(Modality.WINDOW_MODAL);
+			Window owner = ((Node)event.getSource()).getScene().getWindow();
+			stage.initOwner(owner);
+			
+			stage.showAndWait();
+
+			if (controller.getParameter().isOk()){
+				plz.setText(controller.getParameter().getOutData()[0]);
+				ort.setText(controller.getParameter().getOutData()[1]);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 
+	}
 
 
 

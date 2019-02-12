@@ -1,5 +1,5 @@
 package application;
 
-public enum Ids {id_none, id_AGANRRF 
+public enum Ids {ID_NONE, ID_AGANRRF, ID_ORTE 
 
 }
